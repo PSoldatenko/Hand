@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include <ESP32Servo.h>
 
+
 /*0 - большой палец
   1 - указательный палец
   2 - средний палец
@@ -22,7 +23,7 @@ void setup() {
   }
   
 }
-void finger_init(){
+void finger_init(){ //инициализация пальцев
 for (int i=0; i<5; i++){
     finger[i].write(0);
     delay(500);
@@ -32,60 +33,42 @@ for (int i=0; i<5; i++){
     delay(500);
   }
 }
-void one(){
+void bent_fingers(){//согнуть пальцы
   for (int i=0; i<=5; i++){
     finger[i].write(180);
     delay(500);
   }
-    finger[0].write(180);
+}
+
+void straightened_fingers(){//разогнуть пальцы
+  for (int i=4; i>=0; i--){
+    finger[i].write(0);
     delay(500);
+  }
+}
+void one(){
+  bent_fingers();
     finger[1].write(0);
-    delay(500);
-    finger[2].write(180);
-    delay(500);
-    finger[3].write(180);
-    delay(500);
-    finger[4].write(180);
     delay(500);
   }
   void two(){
-    for (int i=0; i<=5; i++){
-    finger[i].write(180);
-    delay(500);
-  }
-    finger[0].write(180);
-    delay(500);
+    bent_fingers();
     finger[1].write(0);
     delay(500);
     finger[2].write(0);
     delay(500);
-    finger[3].write(180);
-    delay(500);
-    finger[4].write(180);
-    delay(500);
-  }
+      }
   void three(){
-    for (int i=0; i<=5; i++){
-    finger[i].write(180);
-    delay(500);
-  }
-    finger[0].write(180);
-    delay(500);
+    bent_fingers();
     finger[1].write(0);
     delay(500);
     finger[2].write(0);
     delay(500);
     finger[3].write(0);
     delay(500);
-    finger[4].write(180);
-    delay(500);
-  }void four(){
-    for (int i=0; i<=5; i++){
-    finger[i].write(180);
-    delay(500);
   }
-    finger[0].write(180);
-    delay(500);
+  void four(){
+    bent_fingers();
     finger[1].write(0);
     delay(500);
     finger[2].write(0);
@@ -95,10 +78,7 @@ void one(){
     finger[4].write(0);
     delay(500);
   }void five(){
-    for (int i=0; i<=5; i++){
-    finger[i].write(180);
-    delay(500);
-  }
+    bent_fingers();
     finger[0].write(0);
     delay(500);
     finger[1].write(0);
