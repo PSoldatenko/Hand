@@ -90,6 +90,11 @@ void one(){
     finger[4].write(0);
     delay(500);
   }
+  void fuck(){
+    bent_fingers();
+    finger[2].write(0);
+    delay(500);
+  }
 void loop() {
   Serial.begin(9600);
 	Serial.println("Servo is ready");
@@ -104,5 +109,7 @@ void loop() {
   four();
   delay(500);
   five();
+  delay(500);
+  fuck();
   delay(500);
 }
